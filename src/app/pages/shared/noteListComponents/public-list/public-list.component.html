@@ -1,0 +1,54 @@
+<div class="container d-flex flex-column align-items-center mt-3 p-2">
+
+  <div id="mul" class="content w-100">
+
+    <div>
+      <h1 class="white title p-2">Anotações Públicas</h1>
+    </div>
+
+    <!-- <ng-template ngFor let-item [ngForOf]="contentList" let-i="index"> -->
+    <section *ngFor="let item of contentList | paginate: { itemsPerPage: 7, currentPage: paginaAtual }; let i = index">
+
+      <div class="divNote w-100 d-flex option" routerLink="/note/{{item.noteId}}">
+
+        <div class="d-flex justify-content-center flex-column divNoteHead">
+          <!-- <a class="mainLink" routerLink="/note/{{item.noteId}}"> -->
+            <h2 class="p-2 mainLink">{{item.noteName}}</h2>
+          <!-- </a> -->
+          <p *ngIf="item.contentPreview.length != 0" class="p-2">{{item.contentPreview}}</p>
+          <p *ngIf="item.contentPreview.length == 0" class="p-2">{{item.content}}</p>
+        </div>
+
+        <hr class="lightHr">
+
+        <div class="d-flex justify-content-center divNoteBottom">
+          <div class="d-flex justify-content-center flex-column w-75">
+            <div class="ps-2">autor:
+              <!-- <a class="d-inline-block mainLink" routerLink=""> -->
+                <h2 class="p-2 ps-0 d-inline-block mainLink">{{item.creator}}</h2>
+              <!-- </a> -->
+            </div>
+
+            <p class="p-2 pb-0 info">{{item.subNotes.length}} Sub-anotações</p>
+            <p class="p-2 pt-0 info">{{item.comments.length}} respostas</p>
+          </div>
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <p class="p-2 pb-0 info">última</p>
+            <p class="p-2 pt-0 pb-0 info">atuallização</p>
+            <p class="p-2 pb-0 info orange">{{item.dateString}}</p>
+            <p class="p-2 info orange">{{item.hour}}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="mainHr" *ngIf="i + 1 < contentList.length ">
+
+    </section>
+    <!-- </ng-template> -->
+
+  </div>
+
+  <pagination-controls class="paginador"  previousLabel="anterior" nextLabel="próximo" [autoHide]=true (pageChange)="paginaAtual = $event"></pagination-controls>
+
+</div>

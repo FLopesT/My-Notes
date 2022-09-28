@@ -1,0 +1,22 @@
+
+<div class="container d-flex flex-column align-items-center mt-3 p-2">
+
+    <form class="d-flex flex-column align-items-center w-100" [formGroup]="noteForm" (ngSubmit)="submitNoteForm()">
+
+        <input class="m-2 w-100" (keyup)="checkContent()" placeholder="Título" type="text" formControlName="noteName">
+        <textarea class="w-100" (keyup)="checkContent()" formControlName="content" cols="30" rows="10"></textarea>
+
+        <div class="d-flex justify-content-between w-100">
+            <div>
+                <button class="m-2 ms-0 mainButton p-2" [disabled]="dButton">Salvar</button>
+                <label>
+                    <input type="checkbox" formControlName="private">
+                    Privar Anotação
+                </label>
+            </div>
+            <button type="button" class="mainButton m-2 me-0 p-2" (click)="cancel()">Cancelar</button>
+        </div>
+
+    </form>
+
+</div>

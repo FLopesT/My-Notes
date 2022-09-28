@@ -1,0 +1,13 @@
+#noteType{
+  background-color: var(--color2);
+  border: none;
+}
+
+#noteType:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+#fundo{
+  background-color: var(--color2);
+}

@@ -1,0 +1,33 @@
+<!-- <app-header></app-header> -->
+
+<div class="container d-flex flex-column align-items-center mt-3 p-2">
+
+  <div id="register" class="d-flex flex-column align-items-center">
+
+    <form class="d-flex flex-column align-items-center" [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+
+      <input class="m-2 mt-3 p-1 w-80" (keyup)="checkForm();" [ngClass]="{'wrong':nameSpaceError}" placeholder="nome" type="text" formControlName="name">
+
+      <input class="m-2 w-80 p-1" (keyup)="checkForm();" [ngClass]="{'wrong':lastNameSpaceError}" placeholder="Sobrenome" type="text"formControlName="lastName">
+
+      <input class="m-2 w-80 p-1" [ngClass]="{'wrong':userNameError ||(userNameInput.length < 5 && userNameInput.length != 0) || userNameSpaceError }" (keyup)="checkForm(); checkUserName();" [(ngModel)]="userNameInput" placeholder="usuário" type="text" formControlName="userName">
+      <p class="error" *ngIf="userNameError">nome de usuário já existe</p>
+      <p class="error" *ngIf="userNameInput.length < 5 && userNameInput.length != 0">5 digitos no mínimo</p>
+
+      <input class="m-2 w-80 p-1" [ngClass]="{'wrong':emailError}" (keyup)="checkForm(); checkEmail()" placeholder="e-mail" type="text" formControlName="email">
+      <p class="error" *ngIf="emailError">e-mail já registrado</p>
+
+      <input class="m-2 w-80 p-1"  [ngClass]="{'wrong':passWordInput.length < 8 && passWordInput.length != 0}" (keyup)="checkForm()" [(ngModel)]="passWordInput" placeholder="senha" type="password"formControlName="password">
+      <p class="error" *ngIf="passWordInput.length < 8 && passWordInput.length != 0">8 dígitos no mínimo</p>
+
+      <input class="m-2 w-80 p-1" [ngClass]="{'wrong':(passWordInput2 != passWordInput) && passWordInput2.length != 0}" (keyup)="checkForm()" [(ngModel)]="passWordInput2" placeholder="confirmar senha" type="password"formControlName="password2">
+      <p class="error" *ngIf="(passWordInput2 != passWordInput) && passWordInput2.length != 0">senha incorreta</p>
+
+      <button class="m-2 mb-3 mainButton p-2" [disabled]="dButton">Registrar-se</button>
+
+    </form>
+  </div>
+
+  <p *ngIf="spaceError" class="error pt-2 text-center">Espaços em branco não são permitidos no formulário</p>
+  <!-- [ngClass]="{'wrong':passworderr}" -->
+</div>

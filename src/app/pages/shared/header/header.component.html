@@ -1,0 +1,37 @@
+<div id="header" class="sticky-top d-flex w-100 align-items-center">
+    <a routerLink="/"><h1 id="logo" class="p-2 hIm">My Notes</h1></a>
+
+    <div class="d-flex">
+
+        <div *ngIf="!getUserStatus.logged" id="user" class="d-flex align-items-center hIm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" id="pBorder"
+                class="white bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            </svg>
+            <div class="d-flex flex-column justify-content-center"><!--Essa função existe apenas aqui, voltaremos para a url atual assim que usuario logar-->
+                <button class="mainButton" (click)="getUrlTool.setCurrentUrl()" routerLink="/login" >Entrar</button>
+                <button class="mainButton" routerLink="/register" >Criar Conta</button>
+            </div>
+
+        </div>
+
+        <div *ngIf="getUserStatus.logged" id='hBtns' class="d-flex">
+            <div id="fb" class="white d-flex align-items-center">
+                <button routerLink="/dashboard/newnote" class="add me-1"></button>
+                <p class="m-2">Anotação</p>
+            </div>
+            <div class="white d-flex align-items-center">
+                <button class="add me-1" routerLink="/dashboard/selectnote"></button>
+                <p>Sub-anotação</p>
+            </div>
+        </div>
+
+        <div *ngIf="getUserStatus.logged" class="ms-5 p-2 white d-flex flex-column align-items-center ">
+          <h2 routerLink="" style="cursor: pointer;">{{getUserStatus.currentUser}}</h2>
+          <button class="mainButton mt-2" (click)="sair()">sair</button>
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,19 @@
+#menu a{
+  text-decoration: none;
+}
+
+.menuBtn{
+    border-radius: none;
+}
+
+.menuBtn {
+	color: white;
+	background-color: var(--color1);
+	border: none;
+  height: 70px;
+}
+
+
+.menuBtn:hover {
+	background-color: var(--color4);
+}

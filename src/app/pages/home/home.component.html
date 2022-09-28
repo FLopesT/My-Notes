@@ -1,0 +1,53 @@
+<!-- <app-header></app-header> -->
+<div class="container d-flex flex-column align-items-center mt-3 p-2">
+
+    <div *ngIf="!getUserStatus" class="content w-100">
+
+        <div>
+            <h1 class="white title p-2">Bem Vindo ao My Notes !</h1>
+        </div>
+        <div id="hc" class="w-100">
+            <p class="p-3 pb-1">O My notes é uma maneira fácil de aprender ou compartilhar informações úteis, ou se preferir, você também pode criar anotações pessoais.</p>
+            <p class="p-3 pt-1">Abaixo é possível ver as anotações mais recentes, para ter acesso completo aos recursos
+                é necessario <a class="mainLink" routerLink="register">criar </a> uma conta, ou se já possuir, apenas <a class="mainLink" routerLink="login">entre</a>.</p>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<!-- separar como componente ---------------------------------------------------->
+<app-recent-public-list></app-recent-public-list>
+<!-- separar como componente ---------------------------------------------------->
+<div class="container d-flex flex-column align-items-center mt-3 p-2">
+
+    <div class="content w-100">
+
+        <div>
+            <h1 class="white title p-2">Vamos Começar</h1>
+        </div>
+
+        <a class="mainLink" routerLink="dashboard/publiclist" (click)="getFinalUrl()">
+            <div class="w-100 p-4 option">
+                <h1 class="title2">Navegar pelas anotações...</h1>
+            </div>
+        </a>
+        <hr class="mainHr">
+
+
+
+        <a class="mainLink" routerLink="">
+            <div class="w-100 p-4 option">
+                <h1 class="title2">Meu perfil...</h1>
+            </div>
+        </a>
+
+    </div>
+
+
+
+
+
+</div>

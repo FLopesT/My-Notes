@@ -1,0 +1,25 @@
+
+#login{
+  background-color: var(--color2);
+  width: 300px;
+  border-radius: 8px;
+  border: 1px solid var(--color3)
+}
+
+#login button{
+  width: 189px;
+}
+
+
+input{
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.error{
+color: var(--color4);
+}
+
+.wrong{
+  background-color: rgb(190, 119, 119);
+}
+

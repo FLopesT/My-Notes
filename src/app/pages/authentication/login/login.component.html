@@ -1,0 +1,26 @@
+<!-- <app-header></app-header> -->
+
+<div class="container d-flex flex-column align-items-center mt-3 p-2">
+
+
+
+  <div id="login" class="d-flex flex-column align-items-center">
+
+    <form class="d-flex flex-column align-items-center" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+
+      <input class="m-2 mt-3 p-1 w-80" [ngClass]="{'wrong':userNameError || userNameLengthError}" [(ngModel)]="userNameInput" (keyup)="checkContent(); checkUserName()" placeholder="usuário" type="text" formControlName="account">
+      <p class="error" *ngIf="userNameError">usuário inexistente</p>
+      <p class="error" *ngIf="userNameLengthError">5 dígitos no mínimo</p>
+      <input class="m-2 w-80 p-1" [ngClass]="{'wrong':passwordError || passwordLengthError}" [(ngModel)]="passwordInput" (keyup)="checkContent(); checkPassword()" placeholder="senha" type="password" formControlName="password">
+      <p class="error" *ngIf="passwordLengthError">8 dígitos no mínimo</p>
+      <p class="error" *ngIf="passwordError">senha incorreta</p>
+
+      <button class="m-2 mainButton p-2" [disabled]="dButton">logar</button>
+
+    </form>
+
+    <button class="m-2 mb-3 mainButton p-2" routerLink="/register">registrar-se</button>
+
+  </div>
+
+</div>

@@ -1,0 +1,65 @@
+.whiteBkg{
+  background-color: white;
+}
+
+h1{
+  font-size: 1.5em;
+}
+
+#coment h1{
+  font-size: 1.4em;
+}
+
+#comentList{
+  max-height: 212.4px;
+  overflow-y: scroll;
+  overflow-x: none;
+  background-color: rgb(238, 238, 238);
+  border-radius: 9px;
+}
+
+#subNotes{
+  border-radius: 12px;
+  background-color: var(--color3);
+  width: 98%;
+  height: 200px;
+  margin: auto;
+}
+
+.paginador{
+  margin-top:16px
+}
+
+#comments p, #autor{
+  cursor: pointer;
+}
+
+#commentButton{
+  border-radius: 8px;
+  padding: 8px;
+}
+
+#commentInput{
+  height: 100px;
+}
+
+.margin16{
+  margin-bottom: 16px ;
+}
+
+.paddingB16{
+  padding-bottom: 16px;
+}
+
+#subanotacoes{
+  min-height: fit-content;
+  max-height: 270px;
+}
+
+#subanotacoes div{
+  background-color: rgb(216, 212, 212);
+}
+
+.divNote{
+  margin-bottom: 5px;
+}

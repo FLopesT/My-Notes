@@ -1,0 +1,352 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+*{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* APP STYLE COMEÇA AQUI */
+:root {
+	--color1: rgb(255, 72, 0);
+	--color2: rgb(57, 57, 61);
+	--color3: rgb(99, 98, 98);
+	--color4: rgb(255, 8, 0);
+  --color5: rgb(212, 207, 207);
+}
+
+@font-face {
+	font-family: Righteous;
+	src: url(./assets/fonts/Righteous-Regular.ttf);
+}
+
+.wrong{
+  background-color: rgb(190, 119, 119);
+}
+
+* {
+	font-family: Righteous;
+}
+
+.mainLink{
+	text-decoration: none;
+	color: var(--color1);
+}
+
+.mainLink:hover{
+	color: var(--color4);
+}
+
+body {
+	background-color: var(--color5);
+	/*rgb(199, 194, 194); */
+}
+
+/* p,h1{
+	cursor: default;
+} */
+
+.orange .orange:hover{
+  color: var(--color1);
+}
+
+.content{
+	border-radius: 8px;
+	background-color: white;
+	border: 1px solid var(--color3);
+	overflow: hidden;
+}
+
+.mainButton {
+	color: white;
+	background-color: var(--color1);
+	border: none;
+	border-radius: 12px;
+}
+
+.mainButton:disabled, .mainButton:disabled:hover{
+  background-color: var(--color3);
+}
+
+.mainButton:hover {
+	background-color: var(--color4);
+}
+
+.divNoteBottom, .divNoteHead{
+  width: 50%;
+}
+
+.white{
+	color: white;
+}
+
+.title{
+	font-size: 1.5em;
+  background-color: var(--color2);
+}
+
+.title2{
+	font-size: 1.5em;
+	cursor: pointer;
+}
+
+.mainHr{
+	color: black;
+	margin: 0;
+}
+
+.lightHr{
+  margin: 0;
+  color: rgb(155, 153, 153);
+}
+
+/* home component */
+
+.pelicula{
+    bottom: -10px;
+    height: 100%;
+}
+
+.divNote{
+    height: 85px;
+    cursor: pointer;
+}
+
+.divNote hr{
+  display: none;
+}
+
+.divNote a{
+    width: fit-content;
+}
+
+.info{
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+.option{
+    background-color: white;
+    cursor: pointer;
+}
+
+.public:hover{
+    background-image: url(/assets/images/pelicula.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+}
+
+
+.option:hover{
+    background-image: url(/assets/images/pelicula.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+}
+
+pagination-controls{
+  margin-top: 20px;
+}
+
+.paginador .ngx-pagination a{
+  color: white;
+  background-color: var(--color2);
+  border-radius: 5px;
+}
+
+.paginador .ngx-pagination .current{
+  background: var(--color1) none;
+  border-radius: 5px;
+}
+
+.paginador .ngx-pagination a:hover{
+  color: var(--color1);
+  background-color: var(--color2);
+}
+
+.paginador .ngx-pagination .disabled{
+  background-color: var(--color3);
+  border-radius: 5px;
+}
+
+.paginador .ngx-pagination .disabled:hover{
+  background-color: var(--color3);
+  border-radius: 5px;
+}
+
+.ngx-pagination .disable:hover{
+  background-color: var(--color3);
+  border-radius: 5px;
+}
+
+.paginador ul{
+  margin-bottom: 0;
+}
+
+.error{
+  color: red;
+}
+
+#contentNote{
+  font-size: 1.3em;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@media screen and (max-width:766px){
+
+  .divNote{
+    flex-direction: column;
+    height: auto;
+    /*height: 170px;*/
+    justify-content: space-around;
+  }
+
+  .divNote hr{
+    display: block;
+  }
+
+  .divNoteBottom, .divNoteHead{
+    width: 100%;
+  }
+}
+
+

@@ -1,0 +1,19 @@
+#register{
+  background-color: var(--color2);
+  width: 300px;
+  border-radius: 8px;
+  border: 1px solid var(--color3)
+}
+
+#register button{
+  width: 189px;
+}
+
+#register p{
+  color: var(--color4);
+}
+
+input{
+  font-family:Arial, Helvetica, sans-serif;
+}
+

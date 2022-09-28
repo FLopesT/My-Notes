@@ -1,0 +1,100 @@
+<div class="container d-flex flex-column align-items-center mt-3 p-2">
+
+  <div class="content w-100">
+
+    <div id="fundo" class="d-flex w-100">
+      <h1 class="white title p-2 pe-1">
+        <span *ngIf="!selectNote">Minhas Anotações</span>
+        <span *ngIf="selectNote">Selecionar Anotação</span>
+      </h1>
+      <select (change)="notesChange()" [(ngModel)]="selecionado" class="white title" name="noteType" id="noteType">
+        <option value="private">
+          <span *ngIf="!selectNote">Privadas</span>
+          <span *ngIf="selectNote">Privada</span>
+        </option>
+        <option value="public">
+          <span *ngIf="!selectNote">Públicas</span>
+          <span *ngIf="selectNote">Pública</span>
+        </option>
+      </select>
+    </div>
+
+    <section class="w-100" *ngIf="selecionado == 'public'">
+      <!-- <ng-template *ngIf="selecionado == 'public'" ngFor let-item [ngForOf]="publicList" let-i="index"> -->
+      <section class="w-100"
+        *ngFor="let item of publicList | paginate: { itemsPerPage: 6, currentPage: paginaAtual }; let i = index">
+
+        <div class="divNote w-100 d-flex option" (click)="selectRoute(item.noteId)">
+          <div class="d-flex justify-content-center flex-column divNoteBottom">
+            <!-- <a *ngIf="!selectNote" class="mainLink" routerLink="/note/{{item.noteId}}"> -->
+              <h2 *ngIf="!selectNote" class="p-2 mainLink">{{item.noteName}}</h2>
+            <!-- </a> -->
+            <!-- <a *ngIf="selectNote" style="text-decoration:none; color: var(--color1);"> -->
+              <h2 *ngIf="selectNote" class="p-2 mainLink">{{item.noteName}}</h2>
+            <!-- </a> -->
+            <p *ngIf="item.contentPreview.length != 0" class="p-2">{{item.contentPreview}}</p>
+            <p *ngIf="item.contentPreview.length == 0" class="p-2">{{item.content}}</p>
+          </div>
+          <hr class="lightHr">
+          <div class="d-flex justify-content-center divNoteBottom">
+            <div class="d-flex justify-content-center flex-column w-75">
+
+              <p class="p-2 pb-0 info">{{item.subNotes.length}} Sub-anotações</p>
+              <p class="p-2 pt-0 info">{{item.comments.length}} respostas</p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center flex-column">
+              <p class="p-2 pb-0 info">última</p>
+              <p class="p-2 pt-0 pb-0 info">atuallização</p>
+              <p class="p-2 pb-0 info orange">{{item.dateString}}</p>
+              <p class="p-2 info orange">{{item.hour}}</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="mainHr" *ngIf="i + 1 < publicList.length ">
+
+      </section>
+      <!-- </ng-template> -->
+    </section>
+
+    <section *ngIf="selecionado == 'private'">
+      <!-- <ng-template *ngIf="selecionado == 'public'" ngFor let-item [ngForOf]="publicList" let-i="index"> -->
+      <section
+        *ngFor="let item of privateList | paginate: { itemsPerPage: 6, currentPage: paginaAtual }; let i = index">
+
+        <div class="divNote w-100 d-flex option" (click)="selectRoute(item.noteId)">
+          <div class="d-flex justify-content-center flex-column divNoteHead">
+            <!-- <a class="mainLink" routerLink="/note/{{item.noteId}}"> -->
+              <h2 class="p-2 mainLink">{{item.noteName}}</h2>
+            <!-- </a> -->
+            <p *ngIf="item.contentPreview.length != 0" class="p-2">{{item.contentPreview}}</p>
+            <p *ngIf="item.contentPreview.length == 0" class="p-2">{{item.content}}</p>
+          </div>
+          <hr class="lightHr">
+          <div class="d-flex justify-content-center divNoteBottom">
+            <div class="d-flex justify-content-center flex-column w-75">
+              <p class="info ps-2 pe-2">{{item.subNotes.length}} Sub-anotações</p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center flex-column">
+              <p class="p-2 pb-0 info">última</p>
+              <p class="p-2 pt-0 pb-0 info">atuallização</p>
+              <p class="p-2 pb-0 info orange">{{item.dateString}}</p>
+              <p class="p-2 info orange">{{item.hour}}</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="mainHr" *ngIf="i + 1 < publicList.length ">
+
+      </section>
+      <!-- </ng-template> -->
+    </section>
+
+  </div>
+
+  <pagination-controls *ngIf="selecionado == 'public'" class="paginador" [autoHide]=true previousLabel="anterior"
+    nextLabel="próximo" (pageChange)="paginaAtual = $event"></pagination-controls>
+  <pagination-controls *ngIf="selecionado == 'private'" class="paginador" [autoHide]=true previousLabel="anterior"
+    nextLabel="próximo" (pageChange)="paginaAtual = $event"></pagination-controls>
+
+</div>

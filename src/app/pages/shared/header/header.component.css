@@ -1,0 +1,83 @@
+
+.hIm{
+   margin: 0 46px 0 46px;
+}
+
+#header {
+    border-bottom: 1.5px solid rgb(172, 170, 170);
+    background: var(--color1) ;
+    height: 70px;
+    justify-content: space-around;
+}
+
+#header a{
+  text-decoration: none;
+}
+
+h1{
+    color: white;
+    font-size: 2.5em;
+    font-weight: 700;
+    cursor: pointer;
+    /* margin: 0 35px 0 35px; */
+}
+
+.add{
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size:100%;
+    background-image: url(../../../../assets/images/botão+.png);
+    border: none;
+}
+
+.add:hover{
+	background-image: url(../../../../assets/images/botão+hover.png);
+}
+
+#pBorder{
+    border: white 2px solid;
+    padding: 1px;
+    border-radius: 100%;
+}
+
+@media screen and (max-width:840px){
+
+#hBtns{
+    flex-direction: column;
+    justify-content: center;
+}
+
+#fb{
+    margin-bottom: 3px;
+}
+
+
+.hIm{
+    margin: 0 10px 0 10px;
+ }
+
+}
+
+@media screen and (max-width:590px){
+ #pBorder{
+    width: 30px;
+    height: 30px;
+ }
+}
+
+@media screen and (max-width:553px){
+    h1{
+        font-size: 1.7em;
+    }
+   }
+
+   @media screen and (max-width:540px){
+    .hIm{
+       margin: 0;
+     }
+
+     #user{
+         margin-right: 10px;
+     }
+   }
